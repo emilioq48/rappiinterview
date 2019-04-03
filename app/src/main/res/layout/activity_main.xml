@@ -43,6 +43,34 @@
             app:layout_constraintStart_toEndOf="@id/topRatedMoviesButton"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/nothingFoundGroup"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:constraint_referenced_ids="nothingFoundText,nothingFoundImage" />
+
+        <TextView
+            style="@style/NothingFoundTextStyle"
+            android:id="@+id/nothingFoundText"
+            android:layout_width="match_parent"
+            android:text="@string/activity_main_nothing_found_text"
+            android:layout_height="0dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/nothingFoundImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_nothing_found"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/moviesRV"
             android:layout_width="0dp"
@@ -56,7 +84,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topRatedMoviesButton"
-            tools:listitem="@layout/item_movie" />
+            tools:listitem="@layout/item_movie"
+            tools:visibility="gone" />
 
         <com.bitvale.lavafab.LavaFab
             android:id="@+id/lavaFAB"

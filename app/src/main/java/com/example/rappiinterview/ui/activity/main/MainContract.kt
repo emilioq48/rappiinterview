@@ -1,6 +1,5 @@
 package com.example.rappiinterview.ui.activity.main
 
-import com.example.rappiinterview.domain.repository.MovieCategory
 import com.example.rappiinterview.infrastructure.networking.services.responses.Item
 
 interface MainContract {
@@ -12,6 +11,8 @@ interface MainContract {
         fun showProgress()
         fun showOnMovieClickedMessage(movie: Item)
         fun showMovieDetail(movie: Item)
+        fun showNoItemsFound()
+        fun hideNoItemsFound()
     }
 
     interface Presenter {
@@ -21,7 +22,6 @@ interface MainContract {
         fun onTopRatedMoviesButtonClicked()
         fun onUpcomingMoviesButtonClicked()
         fun onPopularMoviesButtonClicked()
-        fun onFilterButtonClicked(category: MovieCategory)
         fun onDestroy()
         fun onPopularFABClicked()
         fun onTopRatedFABClicked()

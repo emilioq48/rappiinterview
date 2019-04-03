@@ -43,9 +43,9 @@ class MainPresenter(
                 } else {
                     handleErrorCase(response.code())
                 }
-                view.updateItems(repository.getMovies())
+                updateItems(repository.getMovies())
             }, {
-                view.updateItems(repository.getMovies())
+                updateItems(repository.getMovies())
                 view.showError(it.message ?: view.getDefaultErrorMessage())
                 Log.d(TAG, it.message)
             }).addTo(compositeDisposable)
@@ -85,13 +85,13 @@ class MainPresenter(
                         response.body()?.results,
                         movieCategoryUtils.getCategory(POPULAR)
                     )
-                    view.updateItems(repository.getMoviesWithCategory(POPULAR))
+                    updateItems(repository.getMoviesWithCategory(POPULAR))
                 } else {
-                    view.updateItems(repository.getMoviesWithCategory(POPULAR))
+                    updateItems(repository.getMoviesWithCategory(POPULAR))
                     handleErrorCase(response.code())
                 }
             }, {
-                view.updateItems(repository.getMoviesWithCategory(POPULAR))
+                updateItems(repository.getMoviesWithCategory(POPULAR))
                 view.showError(it.message ?: view.getDefaultErrorMessage())
                 Log.d(TAG, it.message)
             }).addTo(compositeDisposable)
@@ -113,13 +113,13 @@ class MainPresenter(
                         response.body()?.results,
                         movieCategoryUtils.getCategory(TOP_RATED)
                     )
-                    view.updateItems(repository.getMoviesWithCategory(TOP_RATED))
+                    updateItems(repository.getMoviesWithCategory(TOP_RATED))
                 } else {
-                    view.updateItems(repository.getMoviesWithCategory(TOP_RATED))
+                    updateItems(repository.getMoviesWithCategory(TOP_RATED))
                     handleErrorCase(response.code())
                 }
             }, {
-                view.updateItems(repository.getMoviesWithCategory(TOP_RATED))
+                updateItems(repository.getMoviesWithCategory(TOP_RATED))
                 view.showError(it.message ?: view.getDefaultErrorMessage())
                 Log.d(TAG, it.message)
             }).addTo(compositeDisposable)
@@ -141,20 +141,25 @@ class MainPresenter(
                         response.body()?.results,
                         movieCategoryUtils.getCategory(UPCOMING)
                     )
-                    view.updateItems(repository.getMoviesWithCategory(UPCOMING))
+                    updateItems(repository.getMoviesWithCategory(UPCOMING))
                 } else {
-                    view.updateItems(repository.getMoviesWithCategory(UPCOMING))
+                    updateItems(repository.getMoviesWithCategory(UPCOMING))
                     handleErrorCase(response.code())
                 }
             }, {
-                view.updateItems(repository.getMoviesWithCategory(UPCOMING))
+                updateItems(repository.getMoviesWithCategory(UPCOMING))
                 view.showError(it.message ?: view.getDefaultErrorMessage())
                 Log.d(TAG, it.message)
             }).addTo(compositeDisposable)
     }
 
-    override fun onFilterButtonClicked(category: MovieCategory) {
-        view.updateItems(repository.getMoviesWithCategory(category))
+    private fun updateItems(items: List<Item>?) {
+        if (items.isNullOrEmpty()) {
+            view.showNoItemsFound()
+            return
+        }
+        view.hideNoItemsFound()
+        view.updateItems(items)
     }
 
     override fun onDestroy() {
@@ -162,15 +167,15 @@ class MainPresenter(
     }
 
     override fun onPopularFABClicked() {
-        view.updateItems(repository.getMoviesWithCategory(POPULAR))
+        updateItems(repository.getMoviesWithCategory(POPULAR))
     }
 
     override fun onTopRatedFABClicked() {
-        view.updateItems(repository.getMoviesWithCategory(TOP_RATED))
+        updateItems(repository.getMoviesWithCategory(TOP_RATED))
     }
 
     override fun onUpcomingFABClicked() {
-        view.updateItems(repository.getMoviesWithCategory(UPCOMING))
+        updateItems(repository.getMoviesWithCategory(UPCOMING))
     }
 
     override fun onStop() {
