@@ -1,6 +1,6 @@
 package com.example.rappiinterview.ui.activity.main
 
-import com.example.rappiinterview.infrastructure.networking.services.responses.Item
+import com.example.rappiinterview.domain.model.Item
 
 interface MainContract {
     interface View {

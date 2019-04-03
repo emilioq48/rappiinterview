@@ -1,6 +1,6 @@
-package com.example.rappiinterview.infrastructure.networking.implementation
+package com.example.rappiinterview.infrastructure.manager.implementation
 
-import com.example.rappiinterview.infrastructure.networking.interfaces.RetrofitManager
+import com.example.rappiinterview.infrastructure.manager.interfaces.RetrofitManager
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

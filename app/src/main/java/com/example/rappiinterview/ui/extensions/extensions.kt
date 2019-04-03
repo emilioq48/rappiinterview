@@ -1,4 +1,4 @@
-package com.example.rappiinterview.ui
+package com.example.rappiinterview.ui.extensions
 
 import android.app.Activity
 import android.content.Context

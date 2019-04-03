@@ -1,9 +1,9 @@
 package com.example.rappiinterview.ui.activity.main
 
 import android.app.Activity
-import com.example.rappiinterview.domain.repository.MovieCategoryUtils
-import com.example.rappiinterview.domain.repository.interfaces.MoviesRepository
-import com.example.rappiinterview.infrastructure.networking.interfaces.MoviesManager
+import com.example.rappiinterview.infrastructure.util.MovieCategoryUtils
+import com.example.rappiinterview.infrastructure.repository.interfaces.MoviesRepository
+import com.example.rappiinterview.infrastructure.manager.interfaces.MoviesManager
 import com.example.rappiinterview.ui.adapter.MoviesAdapter
 import com.example.rappiinterview.ui.util.di.ActivityScoped
 import dagger.Binds

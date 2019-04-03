@@ -6,9 +6,9 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import com.bitvale.lavafab.Child
 import com.example.rappiinterview.R
-import com.example.rappiinterview.infrastructure.networking.services.responses.Item
+import com.example.rappiinterview.domain.model.Item
 import com.example.rappiinterview.ui.adapter.MoviesAdapter
-import com.example.rappiinterview.ui.hideSoftKeyboard
+import com.example.rappiinterview.ui.extensions.hideSoftKeyboard
 import com.example.rappiinterview.ui.util.PopUpsUtils
 import dagger.android.DaggerActivity
 import kotlinx.android.synthetic.main.activity_main.*

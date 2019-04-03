@@ -1,12 +1,12 @@
 package com.example.rappiinterview.ui.activity.main
 
 import com.example.rappiinterview.RxTrampolineSchedulerRule
-import com.example.rappiinterview.domain.repository.MovieCategory.*
-import com.example.rappiinterview.domain.repository.MovieCategoryUtils
-import com.example.rappiinterview.domain.repository.interfaces.MoviesRepository
-import com.example.rappiinterview.infrastructure.networking.RestConstants
-import com.example.rappiinterview.infrastructure.networking.interfaces.MoviesManager
-import com.example.rappiinterview.infrastructure.networking.services.responses.Item
+import com.example.rappiinterview.infrastructure.util.MovieCategory.*
+import com.example.rappiinterview.infrastructure.util.MovieCategoryUtils
+import com.example.rappiinterview.infrastructure.repository.interfaces.MoviesRepository
+import com.example.rappiinterview.infrastructure.rest.RestConstants
+import com.example.rappiinterview.infrastructure.manager.interfaces.MoviesManager
+import com.example.rappiinterview.domain.model.Item
 import com.example.rappiinterview.infrastructure.networking.services.responses.MoviesServiceResponse
 import com.example.rappiinterview.infrastructure.networking.services.responses.SelectedMoviesServiceResponse
 import com.nhaarman.mockito_kotlin.given

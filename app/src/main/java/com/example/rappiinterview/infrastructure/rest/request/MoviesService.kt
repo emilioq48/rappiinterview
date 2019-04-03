@@ -1,4 +1,4 @@
-package com.example.rappiinterview.infrastructure.networking.services.interfaces
+package com.example.rappiinterview.infrastructure.rest.request
 
 import com.example.rappiinterview.infrastructure.networking.services.responses.MoviesServiceResponse
 import com.example.rappiinterview.infrastructure.networking.services.responses.SelectedMoviesServiceResponse
