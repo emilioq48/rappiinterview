@@ -1,6 +1,9 @@
 package com.example.rappiinterview.application
 
+import android.app.Application
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 
@@ -15,4 +18,11 @@ class AppModule {
 
     @Provides
     fun providesContext(application: RappiInterviewApplication): Context = application.applicationContext
+
+    @Provides
+    fun providesApplication(application: RappiInterviewApplication): Application = application
+
+    @Provides
+    fun providesGson(): Gson = GsonBuilder().create()
+
 }

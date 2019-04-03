@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="popup_general_error_title_margin">5dp</dimen>
+    <dimen name="popup_general_error_description_margin">10dp</dimen>
+    <dimen name="movie_cardview_min_height">20dp</dimen>
+    <dimen name="movie_cardview_margin">5dp</dimen>
+    <dimen name="movie_title_margin_top">10dp</dimen>
+    <dimen name="movie_image_margin_top">20dp</dimen>
+</resources>

@@ -8,4 +8,30 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TitlePopUpTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DescriptionPopUpTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="OKButtonPopUpStyle">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">@color/rappiColor</item>
+        <item name="android:text">@android:string/ok</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="MovieServiceCallButtonStyle">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/rappiColor</item>
+    </style>
 </resources>

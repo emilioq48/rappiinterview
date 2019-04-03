@@ -1,6 +1,9 @@
 package com.example.rappiinterview.ui.activity.main
 
 import android.app.Activity
+import com.example.rappiinterview.domain.repository.interfaces.MoviesRepository
+import com.example.rappiinterview.infrastructure.networking.interfaces.MoviesManager
+import com.example.rappiinterview.ui.adapter.MoviesAdapter
 import com.example.rappiinterview.ui.util.di.ActivityScoped
 import dagger.Binds
 import dagger.Module
@@ -28,9 +31,17 @@ abstract class MainModule {
         @Provides
         @ActivityScoped
         fun providePresenter(
-            mainView: MainContract.View
+            mainView: MainContract.View,
+            moviesManager: MoviesManager,
+            moviesRepository: MoviesRepository
         ): MainContract.Presenter {
-            return MainPresenter(mainView)
+            return MainPresenter(mainView, moviesManager, moviesRepository)
         }
+
+        @JvmStatic
+        @Provides
+        @ActivityScoped
+        fun provideMovieClickListener(activity: MainActivity): MoviesAdapter.MovieClickListener = activity
+
     }
 }

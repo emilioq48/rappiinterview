@@ -2,5 +2,8 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">@color/rappiColor</color>
+
+    <color name="rappiColor">#fc5665</color>
+    <color name="rappiColorLight">#fd6052</color>
 </resources>

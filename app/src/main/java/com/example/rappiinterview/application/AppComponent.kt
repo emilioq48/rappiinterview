@@ -1,5 +1,11 @@
 package com.example.rappiinterview.application
 
+import com.bumptech.glide.annotation.GlideModule
+import com.example.rappiinterview.infrastructure.manager.di.ManagersModule
+import com.example.rappiinterview.infrastructure.networking.NetModule
+import com.example.rappiinterview.ui.util.di.GlideApp
+import com.example.rappiinterview.ui.util.di.RappiInterviewGlideModule
+import com.example.rappiinterview.ui.util.di.UtilsModule
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
@@ -16,7 +22,10 @@ import javax.inject.Singleton
 @Component(
     modules = [AndroidInjectionModule::class,
         ActivityBindingModule::class,
-        AppModule::class]
+        NetModule::class,
+        AppModule::class,
+        ManagersModule::class,
+        UtilsModule::class]
 )
 interface AppComponent : AndroidInjector<RappiInterviewApplication> {
     @Component.Builder
