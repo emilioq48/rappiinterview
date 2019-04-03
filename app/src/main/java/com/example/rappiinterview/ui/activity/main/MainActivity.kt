@@ -1,6 +1,7 @@
 package com.example.rappiinterview.ui.activity.main
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.bitvale.lavafab.Child
 import com.example.rappiinterview.R
@@ -91,6 +92,16 @@ class MainActivity : DaggerActivity(), MainContract.View, MoviesAdapter.MovieCli
 
     override fun showMovieDetail(movie: Item) {
         popUpsUtils.showMovieDetailPopUp(this, movie)
+    }
+
+    override fun showNoItemsFound() {
+        nothingFoundGroup.visibility = View.VISIBLE
+        moviesRV.visibility = View.GONE
+    }
+
+    override fun hideNoItemsFound() {
+        nothingFoundGroup.visibility = View.GONE
+        moviesRV.visibility = View.VISIBLE
     }
 
     override fun onDestroy() {

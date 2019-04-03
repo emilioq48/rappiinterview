@@ -25,4 +25,5 @@
     </string>
     <string name="popup_movie_poster_text">Poster</string>
     <string name="popup_movie_backdrop_text">Backdrop</string>
+    <string name="activity_main_nothing_found_text">Nothing found, make a service call?</string>
 </resources>

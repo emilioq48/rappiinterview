@@ -43,6 +43,37 @@
             app:layout_constraintStart_toEndOf="@id/topRatedMoviesButton"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/nothingFoundGroup"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:constraint_referenced_ids="nothingFoundText,nothingFoundImage" />
+
+        <TextView
+            android:id="@+id/nothingFoundText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginEnd="20dp"
+            android:textColor="@android:color/white"
+            android:text="@string/activity_main_nothing_found_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="10dp"/>
+
+        <ImageView
+            android:id="@+id/nothingFoundImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_nothing_found"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/moviesRV"
             android:layout_width="0dp"
@@ -55,6 +86,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/topRatedMoviesButton"
             tools:listitem="@layout/item_movie" />
 

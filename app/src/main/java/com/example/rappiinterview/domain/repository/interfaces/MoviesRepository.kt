@@ -8,7 +8,6 @@ interface MoviesRepository {
     fun saveMoviesWithCategory(movies: List<Item>?, category: String)
     fun getMovies(): List<Item>
     fun getMoviesWithCategory(category: MovieCategory): List<Item>
-    fun getRatedMovies(startRange: Double, endRange: Double): List<Item>
     fun clearRepository()
     fun close()
 }

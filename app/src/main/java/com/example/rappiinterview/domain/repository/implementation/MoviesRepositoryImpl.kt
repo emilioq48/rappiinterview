@@ -55,9 +55,4 @@ class MoviesRepositoryImpl(private val moviesUtils: MovieCategoryUtils) : Movies
 //        realm.delete(Item::class.java)
 //        realm.commitTransaction()
     }
-
-    override fun getRatedMovies(startRange: Double, endRange: Double): List<Item> =
-        realm.where(Item::class.java).findAll().filter { item ->
-            item.vote_average > startRange && item.vote_average < endRange
-        }
 }

@@ -12,6 +12,8 @@ interface MainContract {
         fun showProgress()
         fun showOnMovieClickedMessage(movie: Item)
         fun showMovieDetail(movie: Item)
+        fun showNoItemsFound()
+        fun hideNoItemsFound()
     }
 
     interface Presenter {
