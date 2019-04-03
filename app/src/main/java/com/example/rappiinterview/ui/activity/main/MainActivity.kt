@@ -2,15 +2,18 @@ package com.example.rappiinterview.ui.activity.main
 
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import com.bitvale.lavafab.Child
 import com.example.rappiinterview.R
 import com.example.rappiinterview.infrastructure.networking.services.responses.Item
 import com.example.rappiinterview.ui.adapter.MoviesAdapter
+import com.example.rappiinterview.ui.hideSoftKeyboard
 import com.example.rappiinterview.ui.util.PopUpsUtils
 import dagger.android.DaggerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
+
 
 class MainActivity : DaggerActivity(), MainContract.View, MoviesAdapter.MovieClickListener {
 
@@ -43,7 +46,7 @@ class MainActivity : DaggerActivity(), MainContract.View, MoviesAdapter.MovieCli
             setChildOnClickListener(Child.TOP) { presenter.onUpcomingFABClicked() }
 
             enableShadow()
-            setParentIcon(R.drawable.ic_filter)
+            setParentIcon(com.example.rappiinterview.R.drawable.ic_filter)
         }
     }
 
@@ -52,6 +55,13 @@ class MainActivity : DaggerActivity(), MainContract.View, MoviesAdapter.MovieCli
         topRatedMoviesButton.setOnClickListener { presenter.onTopRatedMoviesButtonClicked() }
         upcomingMoviesButton.setOnClickListener { presenter.onUpcomingMoviesButtonClicked() }
         swypeToRefreshLayout.setOnRefreshListener { presenter.refreshMovies() }
+        searchImage.setOnClickListener { presenter.onSearchIconClicked(searchText.text.toString()) }
+        searchText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                presenter.onSearchIconClicked(searchText.text.toString())
+            }
+            true
+        }
     }
 
     override fun getDefaultErrorMessage(): String = getString(R.string.default_error_message)
@@ -107,5 +117,9 @@ class MainActivity : DaggerActivity(), MainContract.View, MoviesAdapter.MovieCli
     override fun onDestroy() {
         presenter.onDestroy()
         super.onDestroy()
+    }
+
+    override fun hideKeyboard() {
+        hideSoftKeyboard()
     }
 }

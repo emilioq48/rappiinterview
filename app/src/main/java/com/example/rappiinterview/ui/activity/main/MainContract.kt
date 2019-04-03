@@ -13,6 +13,7 @@ interface MainContract {
         fun showMovieDetail(movie: Item)
         fun showNoItemsFound()
         fun hideNoItemsFound()
+        fun hideKeyboard()
     }
 
     interface Presenter {
@@ -27,5 +28,6 @@ interface MainContract {
         fun onTopRatedFABClicked()
         fun onUpcomingFABClicked()
         fun onMovieLongClicked(movie: Item)
+        fun onSearchIconClicked(query: String)
     }
 }

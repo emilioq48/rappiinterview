@@ -10,4 +10,5 @@ interface MoviesManager{
     fun getTopRatedMovies(page: Int, apiKey: String): Single<Response<SelectedMoviesServiceResponse>>
     fun getUpcomingMovies(page: Int, apiKey: String): Single<Response<SelectedMoviesServiceResponse>>
     fun getPopularMovies(page: Int, apiKey: String): Single<Response<SelectedMoviesServiceResponse>>
+    fun getOnlineSearch(page: Int, apiKey: String, query: String): Single<Response<SelectedMoviesServiceResponse>>
 }

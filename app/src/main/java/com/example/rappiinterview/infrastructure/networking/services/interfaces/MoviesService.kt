@@ -37,11 +37,18 @@ interface MoviesService {
         @Query("api_key") apiKey: String
     ): Single<Response<SelectedMoviesServiceResponse>>
 
-
     @GET("movie/upcoming/")
     fun getUpcomingMovies(
         @Query("page") page: Int,
         @Query("api_key") apiKey: String
+    ): Single<Response<SelectedMoviesServiceResponse>>
+
+    @GET("search/movie/")
+    fun getOnlineSearch(
+        @Query("page") page: Int,
+        @Query("api_key") apiKey: String,
+        @Query("query") query: String,
+        @Query("include_adult") includeAdult: Boolean
     ): Single<Response<SelectedMoviesServiceResponse>>
 
 
