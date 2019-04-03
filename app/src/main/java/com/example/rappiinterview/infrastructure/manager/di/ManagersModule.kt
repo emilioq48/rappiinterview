@@ -1,9 +1,10 @@
 package com.example.rappiinterview.infrastructure.manager.di
 
-import com.example.rappiinterview.infrastructure.manager.implementation.GlideImageManagerImpl
+import com.example.rappiinterview.domain.repository.MovieCategoryUtils
 import com.example.rappiinterview.domain.repository.implementation.MoviesRepositoryImpl
-import com.example.rappiinterview.infrastructure.manager.interfaces.GlideImageManager
 import com.example.rappiinterview.domain.repository.interfaces.MoviesRepository
+import com.example.rappiinterview.infrastructure.manager.implementation.GlideImageManagerImpl
+import com.example.rappiinterview.infrastructure.manager.interfaces.GlideImageManager
 import com.example.rappiinterview.infrastructure.networking.implementation.MoviesManagerImpl
 import com.example.rappiinterview.infrastructure.networking.interfaces.MoviesManager
 import com.example.rappiinterview.infrastructure.networking.services.interfaces.MoviesService
@@ -23,6 +24,6 @@ class ManagersModule {
     fun providesImageManager(): GlideImageManager = GlideImageManagerImpl()
 
     @Provides
-    fun providesMoviesRepository() : MoviesRepository =
-        MoviesRepositoryImpl()
+    fun providesMoviesRepository(movieCategoryUtils: MovieCategoryUtils): MoviesRepository =
+        MoviesRepositoryImpl(movieCategoryUtils)
 }

@@ -1,6 +1,7 @@
 package com.example.rappiinterview.ui.activity.main
 
 import android.app.Activity
+import com.example.rappiinterview.domain.repository.MovieCategoryUtils
 import com.example.rappiinterview.domain.repository.interfaces.MoviesRepository
 import com.example.rappiinterview.infrastructure.networking.interfaces.MoviesManager
 import com.example.rappiinterview.ui.adapter.MoviesAdapter
@@ -33,9 +34,10 @@ abstract class MainModule {
         fun providePresenter(
             mainView: MainContract.View,
             moviesManager: MoviesManager,
-            moviesRepository: MoviesRepository
+            moviesRepository: MoviesRepository,
+            movieCategoryUtils: MovieCategoryUtils
         ): MainContract.Presenter {
-            return MainPresenter(mainView, moviesManager, moviesRepository)
+            return MainPresenter(mainView, moviesManager, moviesRepository, movieCategoryUtils)
         }
 
         @JvmStatic

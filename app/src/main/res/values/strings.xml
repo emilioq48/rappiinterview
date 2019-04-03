@@ -5,4 +5,24 @@
     <string name="main_activity_top_rated_movies_text">Top rated movies</string>
     <string name="main_activity_upcoming_movies">Upcoming movies</string>
     <string name="i_love_rappi">I ♥ Rappi</string>
+    <string name="popup_movie_title">Movie details</string>
+
+    <string name="popup_movie_details_format">
+        Adult: %1$b \n
+        GenreIDs: %2$s \n
+        ID: %3$s \n
+        Media type: %4$s \n
+        Original language: %5$s \n
+        Original title: %6$s \n
+        Overview: %7$s \n
+        Popularity: %8$s \n
+        Release date: %9$s \n
+        Title: %10$s \n
+        Video: %11$s \n
+        Vote average: %12$s \n
+        Vote count: %13$s \n
+        Category: %14$s \n
+    </string>
+    <string name="popup_movie_poster_text">Poster</string>
+    <string name="popup_movie_backdrop_text">Backdrop</string>
 </resources>

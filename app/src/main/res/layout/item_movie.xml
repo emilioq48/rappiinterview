@@ -19,7 +19,7 @@
 
         <ImageView
             android:id="@+id/movieImage"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/item_movie_image_height"
             android:layout_marginTop="@dimen/item_movie_image_margin_top"
             app:layout_constraintBottom_toBottomOf="parent"

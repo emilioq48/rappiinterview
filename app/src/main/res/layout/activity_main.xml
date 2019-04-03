@@ -2,8 +2,8 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/swypeToRefreshLayout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/rappiColorLight"
     tools:context=".ui.activity.main.MainActivity">
@@ -18,9 +18,9 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/activity_main_default_button_height"
             android:text="@string/main_activity_popular_movies_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintEnd_toStartOf="@id/topRatedMoviesButton"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -29,8 +29,8 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/activity_main_default_button_height"
             android:text="@string/main_activity_top_rated_movies_text"
-            app:layout_constraintStart_toEndOf="@id/popularMoviesButton"
             app:layout_constraintEnd_toStartOf="@id/upcomingMoviesButton"
+            app:layout_constraintStart_toEndOf="@id/popularMoviesButton"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -39,16 +39,16 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/activity_main_default_button_height"
             android:text="@string/main_activity_upcoming_movies"
-            app:layout_constraintStart_toEndOf="@id/topRatedMoviesButton"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/topRatedMoviesButton"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/moviesRV"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="@dimen/activity_main_rv_margin_top"
             android:layout_marginStart="@dimen/activity_main_rv_margin_start"
+            android:layout_marginTop="@dimen/activity_main_rv_margin_top"
             android:layout_marginEnd="@dimen/activity_main_rv_margin_end"
             android:layout_marginBottom="@dimen/activity_main_rv_margin_bottom"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -57,5 +57,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topRatedMoviesButton"
             tools:listitem="@layout/item_movie" />
+
+        <com.bitvale.lavafab.LavaFab
+            android:id="@+id/lavaFAB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_main_lava_fab_margin_bottom"
+            app:lavaChild="left|leftTop|top"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
