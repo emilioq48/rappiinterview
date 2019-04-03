@@ -162,10 +162,6 @@ class MainPresenter(
         view.updateItems(items)
     }
 
-    override fun onFilterButtonClicked(category: MovieCategory) {
-        view.updateItems(repository.getMoviesWithCategory(category))
-    }
-
     override fun onDestroy() {
         repository.close()
     }

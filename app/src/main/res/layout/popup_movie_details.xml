@@ -22,29 +22,13 @@
         android:layout_margin="@dimen/popup_movie_details_margin"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
-    <ImageView
-        android:id="@+id/poster"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/popup_movie_poster_image_height"
-        app:layout_constraintEnd_toStartOf="@id/backdrop"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/details" />
-
-    <ImageView
-        android:id="@+id/backdrop"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/popup_movie_backdrop_image_height"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/poster"
-        app:layout_constraintTop_toBottomOf="@id/details" />
-
     <TextView
         android:id="@+id/posterTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/popup_movie_poster_text"
+        app:layout_constraintTop_toBottomOf="@id/details"
         app:layout_constraintBottom_toTopOf="@id/poster"
         app:layout_constraintEnd_toEndOf="@id/poster"
         app:layout_constraintStart_toStartOf="@id/poster" />
@@ -55,9 +39,27 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="@string/popup_movie_backdrop_text"
+        app:layout_constraintTop_toBottomOf="@id/details"
         app:layout_constraintBottom_toTopOf="@id/backdrop"
         app:layout_constraintEnd_toEndOf="@id/backdrop"
         app:layout_constraintStart_toStartOf="@id/backdrop" />
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/popup_movie_poster_image_height"
+        app:layout_constraintEnd_toStartOf="@id/backdrop"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/posterTitle" />
+
+    <ImageView
+        android:id="@+id/backdrop"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/popup_movie_backdrop_image_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/poster"
+        app:layout_constraintTop_toBottomOf="@id/backdropTitle" />
 
     <TextView
         android:id="@+id/posterPath"

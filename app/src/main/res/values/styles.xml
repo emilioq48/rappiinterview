@@ -20,6 +20,13 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="NothingFoundTextStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="OKButtonPopUpStyle">
         <item name="android:layout_margin">10dp</item>
         <item name="android:background">@color/rappiColor</item>
