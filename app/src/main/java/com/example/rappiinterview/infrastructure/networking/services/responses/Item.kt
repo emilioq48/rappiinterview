@@ -9,7 +9,7 @@ public open class Item(
     public open var adult: Boolean = false,
     public open var backdrop_path: String = "",
     public open var genre_ids: RealmList<Int>? = null,
-    @PrimaryKey public open var id: Int = 0,
+    public open var id: Int = 0,
     public open var media_type: String = "",
     public open var original_language: String = "",
     public open var original_title: String = "",
@@ -20,5 +20,10 @@ public open class Item(
     public open var title: String = "",
     public open var video: Boolean = false,
     public open var vote_average: Double = 0.0,
-    public open var vote_count: Int = 0
-) : RealmObject()
+    public open var vote_count: Int = 0,
+    public open var category: String = "general"
+) : RealmObject(){
+    companion object {
+        const val CATEGORY_FIELD_NAME = "category"
+    }
+}

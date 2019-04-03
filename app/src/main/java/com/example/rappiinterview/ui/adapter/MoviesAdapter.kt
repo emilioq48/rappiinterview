@@ -75,6 +75,10 @@ class MoviesAdapter @Inject constructor(
             )
             movieAverageVotes.text = movie.vote_average.toString()
             movieVoteCount.text = movie.vote_count.toString()
+            movieContainer.setOnLongClickListener {
+                listener.onMovieLongClicked(movie)
+                true
+            }
             movieContainer.setOnClickListener {
                 //Do what needed here with the click listener, not needed for this exercise
                 listener.onMovieClicked(movie)
@@ -92,5 +96,6 @@ class MoviesAdapter @Inject constructor(
 
     interface MovieClickListener {
         fun onMovieClicked(movie: Item)
+        fun onMovieLongClicked(movie: Item)
     }
 }

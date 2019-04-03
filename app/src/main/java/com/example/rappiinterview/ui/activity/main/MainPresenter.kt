@@ -2,6 +2,9 @@ package com.example.rappiinterview.ui.activity.main
 
 import android.annotation.SuppressLint
 import android.util.Log
+import com.example.rappiinterview.domain.repository.MovieCategory
+import com.example.rappiinterview.domain.repository.MovieCategory.*
+import com.example.rappiinterview.domain.repository.MovieCategoryUtils
 import com.example.rappiinterview.domain.repository.interfaces.MoviesRepository
 import com.example.rappiinterview.infrastructure.networking.RestConstants
 import com.example.rappiinterview.infrastructure.networking.interfaces.MoviesManager
@@ -13,7 +16,8 @@ import io.reactivex.rxkotlin.addTo
 class MainPresenter(
     private val view: MainContract.View,
     private val moviesManager: MoviesManager,
-    private val repository: MoviesRepository
+    private val repository: MoviesRepository,
+    private val movieCategoryUtils: MovieCategoryUtils
 ) : MainContract.Presenter {
 
     companion object {
@@ -61,6 +65,10 @@ class MainPresenter(
         view.showOnMovieClickedMessage(movie)
     }
 
+    override fun onMovieLongClicked(movie: Item) {
+        view.showMovieDetail(movie)
+    }
+
     override fun onPopularMoviesButtonClicked() {
         moviesManager.getPopularMovies(1, RestConstants.API_KEY_v3)
             .observeOn(AndroidSchedulers.mainThread())
@@ -73,14 +81,17 @@ class MainPresenter(
             .subscribe({ response ->
                 if (response.isSuccessful) {
                     repository.clearRepository()
-                    repository.saveMovies(response.body()?.results)
-                    view.updateItems(repository.getMovies())
+                    repository.saveMoviesWithCategory(
+                        response.body()?.results,
+                        movieCategoryUtils.getCategory(POPULAR)
+                    )
+                    view.updateItems(repository.getMoviesWithCategory(POPULAR))
                 } else {
-                    view.updateItems(repository.getMovies())
+                    view.updateItems(repository.getMoviesWithCategory(POPULAR))
                     handleErrorCase(response.code())
                 }
             }, {
-                view.updateItems(repository.getMovies())
+                view.updateItems(repository.getMoviesWithCategory(POPULAR))
                 view.showError(it.message ?: view.getDefaultErrorMessage())
                 Log.d(TAG, it.message)
             }).addTo(compositeDisposable)
@@ -98,14 +109,17 @@ class MainPresenter(
             .subscribe({ response ->
                 if (response.isSuccessful) {
                     repository.clearRepository()
-                    repository.saveMovies(response.body()?.results)
-                    view.updateItems(repository.getMovies())
+                    repository.saveMoviesWithCategory(
+                        response.body()?.results,
+                        movieCategoryUtils.getCategory(TOP_RATED)
+                    )
+                    view.updateItems(repository.getMoviesWithCategory(TOP_RATED))
                 } else {
-                    view.updateItems(repository.getMovies())
+                    view.updateItems(repository.getMoviesWithCategory(TOP_RATED))
                     handleErrorCase(response.code())
                 }
             }, {
-                view.updateItems(repository.getMovies())
+                view.updateItems(repository.getMoviesWithCategory(TOP_RATED))
                 view.showError(it.message ?: view.getDefaultErrorMessage())
                 Log.d(TAG, it.message)
             }).addTo(compositeDisposable)
@@ -123,17 +137,40 @@ class MainPresenter(
             .subscribe({ response ->
                 if (response.isSuccessful) {
                     repository.clearRepository()
-                    repository.saveMovies(response.body()?.results)
-                    view.updateItems(repository.getMovies())
+                    repository.saveMoviesWithCategory(
+                        response.body()?.results,
+                        movieCategoryUtils.getCategory(UPCOMING)
+                    )
+                    view.updateItems(repository.getMoviesWithCategory(UPCOMING))
                 } else {
-                    view.updateItems(repository.getMovies())
+                    view.updateItems(repository.getMoviesWithCategory(UPCOMING))
                     handleErrorCase(response.code())
                 }
             }, {
-                view.updateItems(repository.getMovies())
+                view.updateItems(repository.getMoviesWithCategory(UPCOMING))
                 view.showError(it.message ?: view.getDefaultErrorMessage())
                 Log.d(TAG, it.message)
             }).addTo(compositeDisposable)
+    }
+
+    override fun onFilterButtonClicked(category: MovieCategory) {
+        view.updateItems(repository.getMoviesWithCategory(category))
+    }
+
+    override fun onDestroy() {
+        repository.close()
+    }
+
+    override fun onPopularFABClicked() {
+        view.updateItems(repository.getMoviesWithCategory(POPULAR))
+    }
+
+    override fun onTopRatedFABClicked() {
+        view.updateItems(repository.getMoviesWithCategory(TOP_RATED))
+    }
+
+    override fun onUpcomingFABClicked() {
+        view.updateItems(repository.getMoviesWithCategory(UPCOMING))
     }
 
     override fun onStop() {
