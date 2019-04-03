@@ -27,4 +27,14 @@ class MoviesManagerImpl @Inject constructor(private val moviesService: MoviesSer
     override fun getUpcomingMovies(page: Int, apiKey: String): Single<Response<SelectedMoviesServiceResponse>> =
         moviesService.getUpcomingMovies(page, apiKey)
             .subscribeOn(Schedulers.io())
+
+    override fun getOnlineSearch(
+        page: Int,
+        apiKey: String,
+        query: String
+    ): Single<Response<SelectedMoviesServiceResponse>> =
+        moviesService.getOnlineSearch(page, apiKey, query, false)
+            .subscribeOn(Schedulers.io())
+
+
 }

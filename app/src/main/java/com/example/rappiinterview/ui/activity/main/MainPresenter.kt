@@ -2,11 +2,10 @@ package com.example.rappiinterview.ui.activity.main
 
 import android.annotation.SuppressLint
 import android.util.Log
-import com.example.rappiinterview.domain.repository.MovieCategory
 import com.example.rappiinterview.domain.repository.MovieCategory.*
 import com.example.rappiinterview.domain.repository.MovieCategoryUtils
 import com.example.rappiinterview.domain.repository.interfaces.MoviesRepository
-import com.example.rappiinterview.infrastructure.networking.RestConstants
+import com.example.rappiinterview.infrastructure.networking.RestConstants.API_KEY_V3
 import com.example.rappiinterview.infrastructure.networking.interfaces.MoviesManager
 import com.example.rappiinterview.infrastructure.networking.services.responses.Item
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -28,7 +27,7 @@ class MainPresenter(
 
     @SuppressLint("CheckResult")
     override fun refreshMovies() {
-        moviesManager.getMovies(1, 1, RestConstants.API_KEY_v3)
+        moviesManager.getMovies(1, 1, API_KEY_V3)
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe {
                 view.showProgress()
@@ -70,7 +69,7 @@ class MainPresenter(
     }
 
     override fun onPopularMoviesButtonClicked() {
-        moviesManager.getPopularMovies(1, RestConstants.API_KEY_v3)
+        moviesManager.getPopularMovies(1, API_KEY_V3)
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe {
                 view.showProgress()
@@ -98,7 +97,7 @@ class MainPresenter(
     }
 
     override fun onTopRatedMoviesButtonClicked() {
-        moviesManager.getTopRatedMovies(1, RestConstants.API_KEY_v3)
+        moviesManager.getTopRatedMovies(1, API_KEY_V3)
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe {
                 view.showProgress()
@@ -126,7 +125,7 @@ class MainPresenter(
     }
 
     override fun onUpcomingMoviesButtonClicked() {
-        moviesManager.getUpcomingMovies(1, RestConstants.API_KEY_v3)
+        moviesManager.getUpcomingMovies(1, API_KEY_V3)
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe {
                 view.showProgress()
@@ -180,5 +179,30 @@ class MainPresenter(
 
     override fun onStop() {
         compositeDisposable.clear()
+    }
+
+    override fun onSearchIconClicked(query: String) {
+        if (query.isBlank()) {
+            return
+        }
+        moviesManager.getOnlineSearch(1, API_KEY_V3, query)
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe {
+                view.showProgress()
+            }
+            .doAfterTerminate {
+                view.hideProgress()
+                view.hideKeyboard()
+            }
+            .subscribe({ response ->
+                if (response.isSuccessful) {
+                    updateItems(response.body()?.results)
+                } else {
+                    handleErrorCase(response.code())
+                }
+            }, {
+                view.showError(it.message ?: view.getDefaultErrorMessage())
+                Log.d(TAG, it.message)
+            }).addTo(compositeDisposable)
     }
 }
