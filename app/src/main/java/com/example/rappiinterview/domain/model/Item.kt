@@ -1,4 +1,4 @@
-package com.example.rappiinterview.infrastructure.networking.services.responses
+package com.example.rappiinterview.domain.model
 
 import io.realm.RealmList
 import io.realm.RealmObject

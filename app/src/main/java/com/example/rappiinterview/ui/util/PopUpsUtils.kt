@@ -7,11 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.example.rappiinterview.R
-import com.example.rappiinterview.infrastructure.manager.interfaces.GlideImageManager
-import com.example.rappiinterview.infrastructure.networking.services.interfaces.MoviesService.Companion.BASE_MOVIE_URL
-import com.example.rappiinterview.infrastructure.networking.services.responses.Item
+import com.example.rappiinterview.infrastructure.manager.interfaces.ImageManager
+import com.example.rappiinterview.infrastructure.rest.request.MoviesService.Companion.BASE_MOVIE_URL
+import com.example.rappiinterview.domain.model.Item
 
-class PopUpsUtils(private val imageManager: GlideImageManager) {
+class PopUpsUtils(private val imageManager: ImageManager) {
     fun showAlertDialog(activity: Activity, description: String) {
         val alertDialog = AlertDialog.Builder(activity).create()
         val view = activity.layoutInflater.inflate(R.layout.popup_general_error, null)

@@ -1,10 +1,7 @@
 package com.example.rappiinterview.application
 
-import com.bumptech.glide.annotation.GlideModule
 import com.example.rappiinterview.infrastructure.manager.di.ManagersModule
-import com.example.rappiinterview.infrastructure.networking.NetModule
-import com.example.rappiinterview.ui.util.di.GlideApp
-import com.example.rappiinterview.ui.util.di.RappiInterviewGlideModule
+import com.example.rappiinterview.infrastructure.rest.NetModule
 import com.example.rappiinterview.ui.util.di.UtilsModule
 import dagger.Component
 import dagger.android.AndroidInjectionModule

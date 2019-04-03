@@ -1,7 +1,7 @@
-package com.example.rappiinterview.infrastructure.networking.implementation
+package com.example.rappiinterview.infrastructure.manager.implementation
 
-import com.example.rappiinterview.infrastructure.networking.interfaces.MoviesManager
-import com.example.rappiinterview.infrastructure.networking.services.interfaces.MoviesService
+import com.example.rappiinterview.infrastructure.manager.interfaces.MoviesManager
+import com.example.rappiinterview.infrastructure.rest.request.MoviesService
 import com.example.rappiinterview.infrastructure.networking.services.responses.MoviesServiceResponse
 import com.example.rappiinterview.infrastructure.networking.services.responses.SelectedMoviesServiceResponse
 import io.reactivex.Single
@@ -9,7 +9,8 @@ import io.reactivex.schedulers.Schedulers
 import retrofit2.Response
 import javax.inject.Inject
 
-class MoviesManagerImpl @Inject constructor(private val moviesService: MoviesService) : MoviesManager {
+class MoviesManagerImpl @Inject constructor(private val moviesService: MoviesService) :
+    MoviesManager {
 
     override fun getMovies(listID: Int, page: Int, apiKey: String): Single<Response<MoviesServiceResponse>> =
         moviesService.getMovies(listID, page, apiKey)

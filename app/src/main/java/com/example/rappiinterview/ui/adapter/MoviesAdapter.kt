@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rappiinterview.R
-import com.example.rappiinterview.infrastructure.manager.interfaces.GlideImageManager
-import com.example.rappiinterview.infrastructure.networking.services.interfaces.MoviesService.Companion.BASE_MOVIE_URL
-import com.example.rappiinterview.infrastructure.networking.services.responses.Item
+import com.example.rappiinterview.infrastructure.manager.interfaces.ImageManager
+import com.example.rappiinterview.infrastructure.rest.request.MoviesService.Companion.BASE_MOVIE_URL
+import com.example.rappiinterview.domain.model.Item
 import com.example.rappiinterview.ui.util.di.ActivityScoped
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_movie.*
@@ -18,7 +18,7 @@ import javax.inject.Inject
 @ActivityScoped
 class MoviesAdapter @Inject constructor(
     private val listener: MovieClickListener,
-    private val imageManager: GlideImageManager
+    private val imageManager: ImageManager
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -65,7 +65,7 @@ class MoviesAdapter @Inject constructor(
 
     class MovieViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
-        fun bind(movie: Item, listener: MovieClickListener, imageManager: GlideImageManager) {
+        fun bind(movie: Item, listener: MovieClickListener, imageManager: ImageManager) {
             movieTitle.text = movie.title
             imageManager.loadImage(
                 containerView.context,

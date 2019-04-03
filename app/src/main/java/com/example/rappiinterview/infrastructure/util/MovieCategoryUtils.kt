@@ -1,4 +1,4 @@
-package com.example.rappiinterview.domain.repository
+package com.example.rappiinterview.infrastructure.util
 
 class MovieCategoryUtils {
     fun getCategory(category: String) =

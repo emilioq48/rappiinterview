@@ -1,5 +1,7 @@
 package com.example.rappiinterview.infrastructure.networking.services.responses
 
+import com.example.rappiinterview.domain.model.Item
+
 data class MoviesServiceResponse(
     val created_by: String,
     val description: String,

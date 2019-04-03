@@ -1,11 +1,11 @@
-package com.example.rappiinterview.domain.repository.implementation
+package com.example.rappiinterview.infrastructure.repository.implementation
 
 import android.util.Log
-import com.example.rappiinterview.domain.repository.MovieCategory
-import com.example.rappiinterview.domain.repository.MovieCategoryUtils
-import com.example.rappiinterview.domain.repository.interfaces.MoviesRepository
-import com.example.rappiinterview.infrastructure.networking.services.responses.Item
-import com.example.rappiinterview.infrastructure.networking.services.responses.Item.Companion.CATEGORY_FIELD_NAME
+import com.example.rappiinterview.infrastructure.util.MovieCategory
+import com.example.rappiinterview.infrastructure.util.MovieCategoryUtils
+import com.example.rappiinterview.infrastructure.repository.interfaces.MoviesRepository
+import com.example.rappiinterview.domain.model.Item
+import com.example.rappiinterview.domain.model.Item.Companion.CATEGORY_FIELD_NAME
 import io.realm.Realm
 
 class MoviesRepositoryImpl(private val moviesUtils: MovieCategoryUtils) : MoviesRepository {

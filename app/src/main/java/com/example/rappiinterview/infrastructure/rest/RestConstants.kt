@@ -1,4 +1,4 @@
-package com.example.rappiinterview.infrastructure.networking
+package com.example.rappiinterview.infrastructure.rest
 
 object RestConstants {
     const val BASE_URL = "Base URL if there is One"

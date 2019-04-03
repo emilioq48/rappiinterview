@@ -1,7 +1,7 @@
-package com.example.rappiinterview.domain.repository.interfaces
+package com.example.rappiinterview.infrastructure.repository.interfaces
 
-import com.example.rappiinterview.domain.repository.MovieCategory
-import com.example.rappiinterview.infrastructure.networking.services.responses.Item
+import com.example.rappiinterview.infrastructure.util.MovieCategory
+import com.example.rappiinterview.domain.model.Item
 
 interface MoviesRepository {
     fun saveMovies(movies: List<Item>?)
