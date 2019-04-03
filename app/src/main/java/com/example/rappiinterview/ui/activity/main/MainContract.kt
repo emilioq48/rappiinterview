@@ -9,6 +9,7 @@ interface MainContract {
         fun updateItems(items: List<Item>?)
         fun hideProgress()
         fun showProgress()
+        fun showOnMovieClickedMessage(movie: Item)
     }
 
     interface Presenter {

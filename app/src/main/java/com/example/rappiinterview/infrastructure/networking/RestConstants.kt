@@ -9,6 +9,4 @@ object RestConstants {
             "dS5v0Qt2RAFZ7jh3oKHzeUA"
 
     val HEADER_AUTH = "auth-header"
-    val CONTENTTYPE = "application/json;charset=utf-8"
-
 }

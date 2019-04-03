@@ -5,16 +5,16 @@ import dagger.android.DaggerApplication
 import io.realm.Realm
 import io.realm.RealmConfiguration
 
-
-
-
 class RappiInterviewApplication : DaggerApplication() {
+
+    companion object {
+        private const val DATABASE_NAME = "moviesdb.realm"
+    }
 
     override fun onCreate() {
         super.onCreate()
         Realm.init(this)
-        Realm.init(this)
-        val config = RealmConfiguration.Builder().name("moviesdb.realm").build()
+        val config = RealmConfiguration.Builder().name(DATABASE_NAME).build()
         Realm.setDefaultConfiguration(config)
     }
 

@@ -5,7 +5,6 @@ import com.example.rappiinterview.infrastructure.networking.services.responses.I
 interface MoviesRepository {
     fun saveMovies(movies: List<Item>?)
     fun getMovies(): List<Item>
-
     fun getRatedMovies(startRange: Double, endRange: Double): List<Item>
     fun clearRepository()
 }

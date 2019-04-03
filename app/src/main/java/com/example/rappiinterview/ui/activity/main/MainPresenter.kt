@@ -36,11 +36,10 @@ class MainPresenter(
                 if (response.isSuccessful) {
                     repository.clearRepository()
                     repository.saveMovies(response.body()?.items)
-                    view.updateItems(repository.getMovies())
                 } else {
-                    view.updateItems(repository.getMovies())
                     handleErrorCase(response.code())
                 }
+                view.updateItems(repository.getMovies())
             }, {
                 view.updateItems(repository.getMovies())
                 view.showError(it.message ?: view.getDefaultErrorMessage())
@@ -59,6 +58,7 @@ class MainPresenter(
     }
 
     override fun onMovieClicked(movie: Item) {
+        view.showOnMovieClickedMessage(movie)
     }
 
     override fun onPopularMoviesButtonClicked() {

@@ -24,12 +24,7 @@ class MoviesRepositoryImpl : MoviesRepository {
         }
     }
 
-    override fun getMovies(): List<Item> {
-        return realm.where(Item::class.java).findAll()
-//        realm.use { realm ->
-//            return realm.where(Item::class.java).findAll()
-//        }
-    }
+    override fun getMovies(): List<Item> = realm.where(Item::class.java).findAll()
 
     override fun clearRepository() {
         realm.beginTransaction()
@@ -37,9 +32,8 @@ class MoviesRepositoryImpl : MoviesRepository {
         realm.commitTransaction()
     }
 
-    override fun getRatedMovies(startRange: Double, endRange: Double): List<Item> {
-        return realm.where(Item::class.java).findAll().filter { item ->
+    override fun getRatedMovies(startRange: Double, endRange: Double): List<Item> =
+        realm.where(Item::class.java).findAll().filter { item ->
             item.vote_average > startRange && item.vote_average < endRange
         }
-    }
 }

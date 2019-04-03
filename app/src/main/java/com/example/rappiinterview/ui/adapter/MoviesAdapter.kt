@@ -13,6 +13,8 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_movie.*
 import javax.inject.Inject
 
+// I just let the Serie viewtype's logic commented as I couln't get a response from any service
+// getting me series so I just used movies
 @ActivityScoped
 class MoviesAdapter @Inject constructor(
     private val listener: MovieClickListener,
@@ -73,7 +75,7 @@ class MoviesAdapter @Inject constructor(
             )
             movieAverageVotes.text = movie.vote_average.toString()
             movieVoteCount.text = movie.vote_count.toString()
-            movieTitle.setOnClickListener {
+            movieContainer.setOnClickListener {
                 //Do what needed here with the click listener, not needed for this exercise
                 listener.onMovieClicked(movie)
             }

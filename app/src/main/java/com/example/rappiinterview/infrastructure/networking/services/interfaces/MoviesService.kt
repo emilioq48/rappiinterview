@@ -1,7 +1,7 @@
 package com.example.rappiinterview.infrastructure.networking.services.interfaces
 
 import com.example.rappiinterview.infrastructure.networking.services.responses.MoviesServiceResponse
-import com.example.rappiinterview.infrastructure.networking.services.responses.TopRatedMoviesServiceResponse
+import com.example.rappiinterview.infrastructure.networking.services.responses.SelectedMoviesServiceResponse
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.GET
@@ -29,20 +29,20 @@ interface MoviesService {
     fun getPopularMovies(
         @Query("page") page: Int,
         @Query("api_key") apiKey: String
-    ): Single<Response<TopRatedMoviesServiceResponse>>
+    ): Single<Response<SelectedMoviesServiceResponse>>
 
     @GET("movie/top_rated/")
     fun getTopRatedMovies(
         @Query("page") page: Int,
         @Query("api_key") apiKey: String
-    ): Single<Response<TopRatedMoviesServiceResponse>>
+    ): Single<Response<SelectedMoviesServiceResponse>>
 
 
     @GET("movie/upcoming/")
     fun getUpcomingMovies(
         @Query("page") page: Int,
         @Query("api_key") apiKey: String
-    ): Single<Response<TopRatedMoviesServiceResponse>>
+    ): Single<Response<SelectedMoviesServiceResponse>>
 
 
 }

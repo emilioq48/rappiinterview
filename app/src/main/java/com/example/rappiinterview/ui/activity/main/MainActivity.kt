@@ -1,6 +1,7 @@
 package com.example.rappiinterview.ui.activity.main
 
 import android.os.Bundle
+import android.widget.Toast
 import com.example.rappiinterview.R
 import com.example.rappiinterview.infrastructure.networking.services.responses.Item
 import com.example.rappiinterview.ui.adapter.MoviesAdapter
@@ -63,6 +64,10 @@ class MainActivity : DaggerActivity(), MainContract.View, MoviesAdapter.MovieCli
 
     override fun showProgress() {
         swypeToRefreshLayout.isRefreshing = true
+    }
+
+    override fun showOnMovieClickedMessage(movie: Item) {
+        Toast.makeText(this, getString(R.string.i_love_rappi), Toast.LENGTH_SHORT).show()
     }
 
     override fun hideProgress() {
