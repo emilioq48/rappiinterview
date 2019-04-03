@@ -41,6 +41,9 @@ ext {
     material_design_version = "1.1.0-alpha05"
     glide_version = "4.9.0"
     lava_fab_version = "1.0.1"
+    mockito_core_version = '2.22.0'
+    mockito_kotlin_version = '1.6.0'
+    robolectric_version = '3.8'
 }
 
 dependencies {
@@ -53,6 +56,7 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation "com.google.android.material:material:$material_design_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
 
     //Dagger 2 - Dependency Injection
     implementation "com.google.dagger:dagger-android:$dagger_version"
@@ -82,5 +86,13 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test:runner:$runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+
+    // Mocking framework for unit tests
+    testImplementation "org.mockito:mockito-core:$mockito_core_version"
+
+    // Unit test framework that de-fangs the Android SDK jar
+    testImplementation "org.robolectric:robolectric:$robolectric_version"
+
+    // Library that provides helper functions to work with Mockito in Kotlin
+    testImplementation "com.nhaarman:mockito-kotlin:$mockito_kotlin_version"
 }

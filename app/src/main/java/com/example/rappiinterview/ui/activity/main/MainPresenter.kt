@@ -37,7 +37,6 @@ class MainPresenter(
             }
             .subscribe({ response ->
                 if (response.isSuccessful) {
-                    repository.clearRepository()
                     repository.saveMovies(response.body()?.items)
                 } else {
                     handleErrorCase(response.code())
@@ -79,7 +78,6 @@ class MainPresenter(
             }
             .subscribe({ response ->
                 if (response.isSuccessful) {
-                    repository.clearRepository()
                     repository.saveMoviesWithCategory(
                         response.body()?.results,
                         movieCategoryUtils.getCategory(POPULAR)
@@ -107,7 +105,6 @@ class MainPresenter(
             }
             .subscribe({ response ->
                 if (response.isSuccessful) {
-                    repository.clearRepository()
                     repository.saveMoviesWithCategory(
                         response.body()?.results,
                         movieCategoryUtils.getCategory(TOP_RATED)
@@ -135,7 +132,6 @@ class MainPresenter(
             }
             .subscribe({ response ->
                 if (response.isSuccessful) {
-                    repository.clearRepository()
                     repository.saveMoviesWithCategory(
                         response.body()?.results,
                         movieCategoryUtils.getCategory(UPCOMING)

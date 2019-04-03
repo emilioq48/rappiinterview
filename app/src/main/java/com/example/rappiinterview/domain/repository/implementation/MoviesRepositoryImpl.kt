@@ -51,8 +51,8 @@ class MoviesRepositoryImpl(private val moviesUtils: MovieCategoryUtils) : Movies
         realm.where(Item::class.java).contains(CATEGORY_FIELD_NAME, moviesUtils.getCategory(category)).findAll()
 
     override fun clearRepository() {
-//        realm.beginTransaction()
-//        realm.delete(Item::class.java)
-//        realm.commitTransaction()
+        realm.beginTransaction()
+        realm.delete(Item::class.java)
+        realm.commitTransaction()
     }
 }
