@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RappiInterview</string>
+    <string name="default_error_message">An unexpected error has occurred</string>
+    <string name="main_activity_popular_movies_text">Popular movies</string>
+    <string name="main_activity_top_rated_movies_text">Top rated movies</string>
+    <string name="main_activity_upcoming_movies">Upcoming movies</string>
+    <string name="i_love_rappi">I ♥ Rappi</string>
 </resources>
