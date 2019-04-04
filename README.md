@@ -73,6 +73,7 @@ PopUpsUtils: Clase para mostrar los diálogos de error general y del detalle de 
 
 Extensions.kt: Es un archivo kotlin que contiene extension functions. En este caso sólo contenemos una extesion function que permite ocultar el teclado desde cualquier Activity.
 
+MainPresenterTest: Clase que contiene algunos tests relacionados con MainPresenter.
 
 **********************************************************************************************
 
