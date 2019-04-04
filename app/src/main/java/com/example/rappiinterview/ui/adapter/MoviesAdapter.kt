@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rappiinterview.R
+import com.example.rappiinterview.domain.model.Item
 import com.example.rappiinterview.infrastructure.manager.interfaces.ImageManager
 import com.example.rappiinterview.infrastructure.rest.request.MoviesService.Companion.BASE_MOVIE_URL
-import com.example.rappiinterview.domain.model.Item
 import com.example.rappiinterview.ui.util.di.ActivityScoped
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_movie.*
@@ -80,7 +80,7 @@ class MoviesAdapter @Inject constructor(
                 true
             }
             movieContainer.setOnClickListener {
-                //Do what needed here with the click listener, not needed for this exercise
+                // Do what needed here with the click listener, not needed for this exercise
                 listener.onMovieClicked(movie)
             }
         }

@@ -5,7 +5,7 @@ import com.example.rappiinterview.infrastructure.networking.services.responses.S
 import io.reactivex.Single
 import retrofit2.Response
 
-interface MoviesManager{
+interface MoviesManager {
     fun getMovies(listID: Int, page: Int, apiKey: String): Single<Response<MoviesServiceResponse>>
     fun getTopRatedMovies(page: Int, apiKey: String): Single<Response<SelectedMoviesServiceResponse>>
     fun getUpcomingMovies(page: Int, apiKey: String): Single<Response<SelectedMoviesServiceResponse>>

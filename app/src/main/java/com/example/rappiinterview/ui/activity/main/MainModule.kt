@@ -44,6 +44,5 @@ abstract class MainModule {
         @Provides
         @ActivityScoped
         fun provideMovieClickListener(activity: MainActivity): MoviesAdapter.MovieClickListener = activity
-
     }
 }

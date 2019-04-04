@@ -1,7 +1,9 @@
 package com.example.rappiinterview.ui.activity.main
 
 import com.example.rappiinterview.RxTrampolineSchedulerRule
-import com.example.rappiinterview.infrastructure.util.MovieCategory.*
+import com.example.rappiinterview.infrastructure.util.MovieCategory.POPULAR
+import com.example.rappiinterview.infrastructure.util.MovieCategory.UPCOMING
+import com.example.rappiinterview.infrastructure.util.MovieCategory.TOP_RATED
 import com.example.rappiinterview.infrastructure.util.MovieCategoryUtils
 import com.example.rappiinterview.infrastructure.repository.interfaces.MoviesRepository
 import com.example.rappiinterview.infrastructure.rest.RestConstants
