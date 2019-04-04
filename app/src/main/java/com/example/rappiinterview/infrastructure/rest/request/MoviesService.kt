@@ -50,6 +50,4 @@ interface MoviesService {
         @Query("query") query: String,
         @Query("include_adult") includeAdult: Boolean
     ): Single<Response<SelectedMoviesServiceResponse>>
-
-
 }

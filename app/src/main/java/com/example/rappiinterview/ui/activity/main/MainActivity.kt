@@ -14,7 +14,6 @@ import dagger.android.DaggerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-
 class MainActivity : DaggerActivity(), MainContract.View, MoviesAdapter.MovieClickListener {
 
     @Inject

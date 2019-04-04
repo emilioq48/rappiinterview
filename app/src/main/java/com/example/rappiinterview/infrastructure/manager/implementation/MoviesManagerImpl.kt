@@ -1,9 +1,9 @@
 package com.example.rappiinterview.infrastructure.manager.implementation
 
 import com.example.rappiinterview.infrastructure.manager.interfaces.MoviesManager
-import com.example.rappiinterview.infrastructure.rest.request.MoviesService
 import com.example.rappiinterview.infrastructure.networking.services.responses.MoviesServiceResponse
 import com.example.rappiinterview.infrastructure.networking.services.responses.SelectedMoviesServiceResponse
+import com.example.rappiinterview.infrastructure.rest.request.MoviesService
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Response
@@ -20,7 +20,6 @@ class MoviesManagerImpl @Inject constructor(private val moviesService: MoviesSer
         moviesService.getPopularMovies(page, apiKey)
             .subscribeOn(Schedulers.io())
 
-
     override fun getTopRatedMovies(page: Int, apiKey: String): Single<Response<SelectedMoviesServiceResponse>> =
         moviesService.getTopRatedMovies(page, apiKey)
             .subscribeOn(Schedulers.io())
@@ -36,6 +35,4 @@ class MoviesManagerImpl @Inject constructor(private val moviesService: MoviesSer
     ): Single<Response<SelectedMoviesServiceResponse>> =
         moviesService.getOnlineSearch(page, apiKey, query, false)
             .subscribeOn(Schedulers.io())
-
-
 }

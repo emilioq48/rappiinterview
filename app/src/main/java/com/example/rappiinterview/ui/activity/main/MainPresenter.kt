@@ -2,12 +2,14 @@ package com.example.rappiinterview.ui.activity.main
 
 import android.annotation.SuppressLint
 import android.util.Log
-import com.example.rappiinterview.infrastructure.util.MovieCategory.*
-import com.example.rappiinterview.infrastructure.util.MovieCategoryUtils
+import com.example.rappiinterview.domain.model.Item
+import com.example.rappiinterview.infrastructure.manager.interfaces.MoviesManager
 import com.example.rappiinterview.infrastructure.repository.interfaces.MoviesRepository
 import com.example.rappiinterview.infrastructure.rest.RestConstants.API_KEY_V3
-import com.example.rappiinterview.infrastructure.manager.interfaces.MoviesManager
-import com.example.rappiinterview.domain.model.Item
+import com.example.rappiinterview.infrastructure.util.MovieCategory.POPULAR
+import com.example.rappiinterview.infrastructure.util.MovieCategory.UPCOMING
+import com.example.rappiinterview.infrastructure.util.MovieCategory.TOP_RATED
+import com.example.rappiinterview.infrastructure.util.MovieCategoryUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
